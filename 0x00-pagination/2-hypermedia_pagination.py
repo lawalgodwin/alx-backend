@@ -16,7 +16,7 @@ You can use the math module if necessary.
 """
 import csv
 import math
-from typing import List, Mapping, Tuple
+from typing import List, Dict
 import math
 
 index_range = __import__('0-simple_helper_function').index_range
@@ -54,7 +54,7 @@ class Server:
             return []
 
     def get_hyper(self, page: int = 1,
-                  page_size: int = 10) -> dict:
+                  page_size: int = 10) -> Dict:
         """Implement HATEOAS concept to make the API intuitive to use"""
         hypermedia_response = {}
         result = self.get_page(page, page_size)
