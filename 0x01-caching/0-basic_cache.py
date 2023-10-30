@@ -25,7 +25,7 @@ class BasicCache(BaseCaching):
         """implement parent class abstract put method"""
         if (key is None) or (item is None):
             pass
-        self.cache_data.update({key: item})
+        self.cache_data[key] = item
 
     def get(self, key: str):
         """Implement parent class abstract get method"""
