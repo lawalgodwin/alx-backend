@@ -38,4 +38,5 @@ class LIFOCache(BaseCaching):
         self.cache_data[key] = item
 
     def get(self, key):
+        """implement the parent class abstract put method"""
         return self.cache_data.get(key, None)
