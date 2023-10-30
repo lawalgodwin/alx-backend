@@ -65,6 +65,7 @@ class Server:
         """
         assert (isinstance(index, int) and isinstance(page_size, int))
         assert ((index >= 0) and index < len(self.indexed_dataset()))
+        assert (page_size > 0)
         rows_to_return = []
         end_index: int = index + page_size
         for idx in range(index, end_index):
