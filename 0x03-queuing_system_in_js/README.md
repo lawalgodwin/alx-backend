@@ -9,7 +9,7 @@
 - How to build a basic Express app interacting with a Redis server
 - How to the build a basic Express app interacting with a Redis server and queue
 ### Useful Links
-- (https://redis.io/docs/install/install-redis/)[Redis quick start]
-- (https://redis.io/docs/connect/cli/)[Redis client interface]
-- (https://github.com/redis/node-redis)[Redis client for Node JS]
-- (https://github.com/Automattic/kue)[Kue **deprecated but still use in the industry**]
+- [Redis quick start](https://redis.io/docs/install/install-redis/)
+- [Redis client interface](https://redis.io/docs/connect/cli/)
+- [Redis client for Node JS](https://github.com/redis/node-redis)
+- [Kue **deprecated but still use in the industry**](https://github.com/Automattic/kue)
