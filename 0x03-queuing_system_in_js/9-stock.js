@@ -1,5 +1,5 @@
 import express from 'express';
-import { createClient, print } from 'redis';
+import { createClient } from 'redis';
 import { promisify } from 'util';
 
 const client = createClient();
@@ -52,6 +52,25 @@ app.get('/list_products/:itemId', async (req, res) => {
     item.currentQuantity = item.initialAvailableQuantity;
   } else item.currentQuantity = currentStock;
   res.json(item);
+});
+
+app.get('/reserve_product/:itemId', async (req, res) => {
+  const itemId = Number(req.params.itemId);
+
+  const item = getItemById(itemId);
+
+  if (!item) {
+    res.status(404).json({ status: 'Product not found' });
+    return;
+  }
+  let availableStock = await getCurrentReservedStockById(itemId);
+  if (!availableStock) availableStock = item.initialAvailableQuantity;
+  if (availableStock < 1) {
+    res.json({ status: 'Not enough stock available', itemId });
+    return;
+  }
+  await reserveStockById(itemId, Number(availableStock) - 1);
+  return res.json({ status: 'Reservation confirmed', itemId });
 });
 
 app.listen(1245, () => console.log('server running on port 1245'));
